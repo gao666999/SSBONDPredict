@@ -7,7 +7,7 @@ This folder contain detail source code of SSBONDPredict, mainly included the fol
 * static contain some configuration file for tensorflow
 ## Usage
 ### One
-Use python predict.py --help to see all the features. Usage is pretty straight forward(but first if you download this project from github,make sure change the project name from SSBONDPredict-master to SSBONDPredict), you can use predict.py  to predict the residue pairs directly at command line, (but pay attention that predict.py must be in the diectory of PreDisulfideBond)，like this:
+Use python predict.py --help to see all the features. Usage is pretty straight forward(if you download this project from github,make sure change the project name from SSBONDPredict-master to SSBONDPredict), you can use predict.py  to predict the residue pairs directly at command line, but pay attention that predict.py must be in the diectory of PreDisulfideBond，like this:
 ```
 # predict the residue pairs which can form disulfide bonds after mutattains of 1crn.pdb
 python predict.py 'objectfile' 'the diectory of SSBONDPredict in your computer'
