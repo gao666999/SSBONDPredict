@@ -41,7 +41,7 @@ def save_result(datafile,PositionOfThisProject,filename):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('datafile', metavar='datafile', type=str, help='Structure in .pdb format')
-    parser.add_argument('position', metavar='position', type=str, help='the position of this project in your computer')
+    parser.add_argument('position', metavar='position', type=str, help='the position of this SSBONDPredict in your computer')
     parser.add_argument('-g', '--generate', action='store_true', help=' generate the pdb files after mutation')
     args = parser.parse_args()
     #args = sys.argv[1:]
