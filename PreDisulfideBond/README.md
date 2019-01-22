@@ -9,7 +9,7 @@ This folder contain detail source code of SSBONDPredict, mainly included the fol
 ### One
 Use python predict.py --help to see all the features. Usage is pretty straight forward(if you download this project from github,make sure change the project name from SSBONDPredict-master to SSBONDPredict), you can use predict.py  to predict the residue pairs directly at command line, but pay attention that predict.py must be in the diectory of PreDisulfideBond，like this:
 ```
-# predict the residue pairs which can form disulfide bonds after mutattains of 1crn.pdb
+# predict the residue pairs which can form disulfide bonds after mutation of 1crn.pdb
 python predict.py 'objectfile' 'the diectory of SSBONDPredict in your computer'
 ```
 * For example,predict the residue pairs for 1crn.pdb and SSBONDPredict is on the Desktop:
@@ -39,7 +39,7 @@ ASNA12-THRA30 0.956 -38.1458 -2.9467
 ALAA9-CYSA32 0.902 -41.2027 -0.2770
 the predicted result are saved in : /Users/Desktop/SSBONDresult/
 ```
-* And this time, if you come to SSBONDresult,beside one excel, you also can find one folder named mutatedpdb used to save mutated pdbfiles, all of them are named by their residue name before mutation,like this:
+* And this time, if you come to SSBONDresult,beside that excel, you can also find one folder named mutatedpdb used to save mutated pdbfiles, all of them are named by their residue name before mutation,like this:
 ```
 ALA-CYS.pdb ARG-ASN.pdb ASN-THR.pdb CYS-ARG.pdb CYS-TYR.pdb PHE-CYS.pdb THR-ALA.pdb
 ALA-THR.pdb ARG-CYS.pdb CYS-ALA.pdb CYS-CYS.pdb ILE-ASN.pdb PHE-THR.pdb THR-CYS.pdb
