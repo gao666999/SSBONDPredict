@@ -37,9 +37,9 @@ CYSA4-ALAA9 0.980 -22.1713 -0.2770
 CYSA3-TYRA44 0.956 -48.4120 -0.7053
 ASNA12-THRA30 0.956 -38.1458 -2.9467
 ALAA9-CYSA32 0.902 -41.2027 -0.2770
-the predicted result are saved in : /Users/Desktop/SSBONDresult/
+the predicted result are saved in : /Users/Desktop/SSBONDresult-1crn/
 ```
-* And this time, if you come to SSBONDresult,beside that excel, you can also find one folder named mutatedpdb used to save mutated pdbfiles, all of them are named by their residue name before mutation,like this:
+* And this time, if you come to SSBONDresult-1crn,beside that excel, you can also find one folder named mutatedpdb used to save mutated pdbfiles, all of them are named by their residue name before mutation,like this:
 ```
 ALA-CYS.pdb ARG-ASN.pdb ASN-THR.pdb CYS-ARG.pdb CYS-TYR.pdb PHE-CYS.pdb THR-ALA.pdb
 ALA-THR.pdb ARG-CYS.pdb CYS-ALA.pdb CYS-CYS.pdb ILE-ASN.pdb PHE-THR.pdb THR-CYS.pdb
