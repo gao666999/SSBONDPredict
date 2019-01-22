@@ -6,7 +6,7 @@ This folder contain detail source code of SSBONDPredict, mainly included the fol
 * SSBOND contain some specific function about predicting the residue pairs which can form disulfide bonds after mutation
 * static contain some configuration file for tensorflow
 ## Usage
-Before run this project,you need to install two packages,rmsd and Biopython
+Before run this project,you need to install tensorflow 1.10.0,and two packages,rmsd and Biopython
 ```
 install rmsd: pip insatll rmsd   
 install BioPython: pip insatll Biopython
