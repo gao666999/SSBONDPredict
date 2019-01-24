@@ -11,8 +11,7 @@ the order of result from left to right are followed by:
 * Change of energy after mutations  
 
 ## Detailed Documentation 
-see the [README] at 
-(https://github.com/LiuLab-CSRC/SSBONDPredict/tree/master/PreDisulfideBond)
+see the Source code [README](https://github.com/LiuLab-CSRC/SSBONDPredict/tree/master/PreDisulfideBond)
 
 ## Copyright  
 SSBONDPredict is created by liulab of Beijing Compulational Science Research Center.
