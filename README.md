@@ -8,7 +8,7 @@ the order of result from left to right are followed by:
 * Residue pairs that can form disulfide bonds after mutations.  
 * The probability about this residue pairs can form disulfide bonds after mutations.  
 * Change of entropy after mutations  
-* Change of energy after mutations  
+* Change of energy after mutations
 ## Copyright  
 SSBONDPredict is created by liulab of Beijing Compulational Science Research Center.
 
