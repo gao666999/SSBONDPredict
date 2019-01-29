@@ -16,6 +16,8 @@ tensorflow 1.10.0,and two packages,rmsd and Biopython
 install rmsd: pip insatll rmsd   
 install BioPython: pip insatll Biopython
 ```
+Depending on the Python environment, the following modules might be required:
+``` chardet, openpyxl ```
 ### Running the program
 Download the code from GitHub, and rename the folder name from "SSBONDPredict-master" to "SSBONDPredict" if necessary.
 
