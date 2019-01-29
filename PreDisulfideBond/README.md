@@ -19,7 +19,7 @@ install BioPython: pip insatll Biopython
 Depending on the Python environment, the following modules might be required:
 ``` chardet, openpyxl ```
 ### Running the program
-Download the code from GitHub, and rename the folder name from "SSBONDPredict-master" to "SSBONDPredict" if necessary.
+Download the code from GitHub, then you are ready to go.
 
 ```python predict.py --help```
 Will display all parameters and features. 
@@ -27,13 +27,13 @@ Will display all parameters and features.
 The source path should be provided to predict.py at commandline in this format:
 
 ```
-python predict.py PDB_file the_path_of_SSBONDPredict
+python predict.py PDB_file the_path_of_SSBONDPredict output_path
 ```
 
 * For example, to predict the residue pairs for 1crn.pdb and if the SSBONDPredict is saved in '/Users/ssb/Desktop', the commandline will be:
 
 ```
-python predict.py /Users/ssb/Desktop/1crn.pdb /Users/ssb/Desktop
+python predict.py /Users/ssb/Desktop/1crn.pdb /Users/ssb/Desktop ./
 ```
 * And the prediction will show at the prompt:
 ```
@@ -41,13 +41,13 @@ Prediction Finished.
 THRA21-ILEA25 0.580 -19.3885 -1.1023
 PHEA13-CYSA26 0.577 -34.0875 -2.0208
 THRA1-ALAA38 0.506 -47.1318 -0.0956
-the predicted result are saved in : /Users/ssb/Desktop/SSBONDresult-1crn/
+the predicted result are saved in : ./SSBONDresult-1crn/
 ```
 * You can find the result saved in the diectory shown above. The results are saved in an excel file with three data sheets, where the predictions are ordered based on probability,entropy change and energy change, respectively.
 
 * And If you want to generate some pdb files after mutation you can use the --generate argument,for example:
 ```
-python predict.py '/Users/ssb/Desktop/1crn.pdb' '/Users/ssb/Desktop' --generate
+python predict.py /Users/ssb/Desktop/1crn.pdb /Users/ssb/Desktop /Users/ssb/Data/ --generate
 ```
 * And you will see:
 ```
@@ -57,7 +57,7 @@ CYSA4-ALAA9 0.980 -22.1713 -0.2770
 CYSA3-TYRA44 0.956 -48.4120 -0.7053
 ASNA12-THRA30 0.956 -38.1458 -2.9467
 ALAA9-CYSA32 0.902 -41.2027 -0.2770
-the predicted result are saved in : /Users/Desktop/SSBONDresult-1crn/
+the predicted result are saved in : /Users/ssb/Data/SSBOND-Result-1crn/
 ```
 * And this time, in the folder of SSBONDresult-1crn,beside the excel file, you can also find one folder named mutatedpdb used to save mutated pdbfiles, all of them are named by their residue name before mutation,like this:
 ```
@@ -69,7 +69,7 @@ ALA-THR.pdb ARG-CYS.pdb CYS-ALA.pdb CYS-CYS.pdb ILE-ASN.pdb PHE-THR.pdb THR-CYS.
 If you just want to use this Python program to predict the residue pairs that can form disulfide bonds after mutation within another program, you can write like this:
 ```
 form PreDisulfideBond import predict
-result = predict.predict_pairs('objectfile','the position of SSBONDPredict in your computer')
+result = predict.predict_pairs('objectfile','the path contains PreDisulfideBond')
 ```
 Note that this only gives the residue pairs and the associated probabilities, not the entropy/energy changes.
 
