@@ -1,7 +1,7 @@
 import os
 from time import time,localtime,strftime
 import pandas as pd
-def sort_dict(path,filename,dict1):
+def sort_dict(path,filename,dict1, output_path='./'):
     keys = dict1.keys()
     value = dict1.values()
     pb = []
@@ -22,7 +22,7 @@ def sort_dict(path,filename,dict1):
     df_pb = df.sort_values(by = "probability", axis = 0, ascending = False)
     df_ep = df.sort_values(by = "entropy", axis = 0, ascending = False)
     df_en = df.sort_values(by = "energy", axis = 0, ascending = False)
-    basepath = path + '/SSBONDresult-'+filename[:4] + '/'
+    basepath = output_path + '/SSBOND-Result-'+filename[:4] + '/'
     if os.path.exists(basepath):
         Position = basepath + 'result.xlsx'
     else:

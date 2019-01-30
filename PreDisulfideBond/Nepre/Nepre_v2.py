@@ -20,7 +20,7 @@ def pearson(rmsd,energy):
     return y[0][1]
 
 
-def load_EnergyMatrix():
+def load_EnergyMatrix(energy_filename):
     aaDict={"ALA":{},"VAL":{},"LEU":{},"ILE":{},"PHE":{},\
             "TRP":{},"MET":{},"PRO":{},"GLY":{},"SER":{},\
             "THR":{},"CYS":{},"TYR":{},"ASN":{},"GLN":{},\
@@ -30,7 +30,7 @@ def load_EnergyMatrix():
     List.sort()
 
     #f1 = open("./project/PreDisulfideBond/Nepre/radius.npy")
-    f1 = open("./Nepre/radius.npy")
+    f1 = open(energy_filename)
     for amino1 in List:
         for amino2 in List:
             aaDict[amino1][amino2] = np.load(f1)
@@ -331,8 +331,8 @@ def calculate_Energy_change_from_list(aa_list, all_amino_acids, matrix):
     return dE
 
 
-def get_energy(pdbfile,mut_list):
-    energymatrix = load_EnergyMatrix()
+def get_energy(pdbfile,mut_list,energy_filename):
+    energymatrix = load_EnergyMatrix(energy_filename)
     #radiusDict = LoadRadius()
     all_amino_acids = process_pdb_file(pdbfile, energymatrix)
     all_energy = []
@@ -345,17 +345,13 @@ def get_energy(pdbfile,mut_list):
 if __name__ == "__main__":
 
     args = sys.argv[1:]
+    if (len(args)<2):
+    	print "usage: python nepre_v2.py pdbfile energy_matrix_file"
     pdb = args[0]
-    matrix = load_EnergyMatrix()
-    if len(args) == 1:
+    energy_filename=args[1]
+    matrix = load_EnergyMatrix(energy_filename)
+    if len(args) == 2:
         E = calculate_energy_for_pdbfile(pdb,matrix)
         print "Nepre Potential Energy(Radius)"
         print pdb,E
-    if len(args) == 2:
-        n_sites = 1
-        n_mutations = int(args[1])
-        calculate_energy_for_pdbfile_with_mutations(pdb,matrix, n_sites=n_sites, n_mutations=n_mutations)
-    if len(args) == 3:
-        n_sites = int(args[1])
-        n_mutations = int(args[2])
-        calculate_energy_for_pdbfile_with_mutations(pdb,matrix, n_sites=n_sites, n_mutations=n_mutations)
+   

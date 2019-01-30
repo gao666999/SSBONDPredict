@@ -3,7 +3,7 @@ import rmsd
 import create_position as CP
 from Nepre import Nepre_v2
 from Nepre import AminoAcid
-def energy(pdbfile,dict1):
+def energy(pdbfile,dict1,energy_filename):
 
     mu_list = []
     for pairs in dict1.keys():
@@ -32,7 +32,7 @@ def energy(pdbfile,dict1):
     #base_path = 'media/'
     #base_path = '/Users/xg666/Desktop/xqdongV2/project/media/'
     #pdbfile = base_path + filename
-    energy_list = Nepre_v2.get_energy(pdbfile,mu_list)
+    energy_list = Nepre_v2.get_energy(pdbfile,mu_list,energy_filename)
     lenth = len(energy_list)
     n = 0
     for i in dict1.keys():
