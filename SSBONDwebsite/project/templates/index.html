@@ -1,0 +1,291 @@
+{% load static from staticfiles %}
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  {% load staticfiles %}
+
+  <title>Disulfide Bond Prediction</title>
+
+  <!-- css -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="{% static 'plugins/cubeportfolio/css/cubeportfolio.min.css' %}">
+  <link href="{% static 'css/nivo-lightbox.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/nivo-lightbox-theme/default/default.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" media="screen" />
+  <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet" media="screen" />
+  <link href="{% static 'css/animate.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <!-- boxed bg -->
+  <link id="bodybg" href="{% static 'bodybg/bg1.css' %}" rel="stylesheet" type="text/css" />
+  <!-- template skin -->
+  <link id="t-colors" href="{% static 'color/default.css' %}" rel="stylesheet">
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+  <div id="wrapper">
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <!-- <div class="top-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-md-6">
+              <p class="bold text-left">Monday - Saturday, 8am to 10pm </p>
+            </div>
+            <div class="col-sm-6 col-md-6">
+              <p class="bold text-right">Call us now +62 008 65 001</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="container navigation">
+
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+          <a class="navbar-brand" href="index.html">
+           Disulfide Bond Prediction 
+          </a>
+        </div>
+
+        
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="index">Index</a></li>
+            <li><a href="predict">Predict</a></li>
+            <!-- <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="badge custom-badge red pull-right">Extra</span>More <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="index.html">Home CTA</a></li>
+                <li><a href="index-form.html">Home Form</a></li>
+                <li><a href="index-video.html">Home video</a></li>
+              </ul>
+            </li> -->
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+
+
+    <!-- Section: intro -->
+    <section id="intro" class="intro">
+      <div class="intro-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
+                <h2 class="h-light">This server predicts</h2>
+              </div>
+              <br>
+              <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.1s">
+                  <h4 class="h-ultra"> <span style="color:yellow">disulfide bonds</span> </h4>
+                  <h4 class="h-light"> candidates for given proteins.</h4>
+              </div>
+              <div class="well well-trans">
+                <div class="wow fadeInRight" data-wow-delay="0.1s">
+
+                  <ul class="lead-list">
+                    <li> <span class="list"><br/>This webserver takes a protein structure and predicts the potential mutation sites that may facilitate the formation of disulfide bonds. </span></li>
+                    <li> <span class="list">The result is summarized in a table composed of amino acid pairs with the corresponding probability of forming a disulfide bonds, and the associated energy changes due to the mutation.</span></li>
+                    <li> <span class="list">To use this predicition tool, you only need to upload a pdb file or input a PDB id. The results will be displayed in an interactive visual display powered by Jmol. </span></li>
+                    
+                  </ul>
+
+                </div>
+              </div>
+
+
+            </div>
+            <div class="col-lg-6" style="float: right;">
+              <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+                <img src="{% static 'img/disulfide_bond_focuse2.png' %}" class="img-responsive" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> 
+
+
+<!-- 
+    <section id="callaction" class="home-section paddingtop-40">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="callaction bg-gray">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="cta-text">
+                      <h3>In an emergency? Need help now?</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit uisque interdum ante eget faucibus. </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="wow lightSpeedIn" data-wow-delay="0.1s">
+                    <div class="cta-btn">
+                      <a href="#" class="btn btn-skin btn-lg">Book an appoinment</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+
+    
+    <footer>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <h5>About Prediction Method</h5 >
+                <p>
+                  The algorithm is based on image classification methods in machine learning by utilizing the statistical information in the existing structures. The atomic coordinates of neighboring amino acids are used to compute the probability of forming di-sulfide bonds.
+                </p>
+              </div>
+            </div>
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <h5>Links</h5>
+                <ul>
+	            	<li><a href="http://liulab.csrc.ac.cn">Homepage of Laboratory</a></li>
+					<li><a href="http://www.chemistry.wustl.edu/~edudev/LabTutorials/jmol.html">Jmol information</a></li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <h5>Developers</h5>
+                <p>
+                Xiaoqun Dong <br>
+                Xiang Gao <br>
+                Xuanxuan Li <br>
+                Haiguang Liu <br>
+                </p>
+                <ul>
+                  <li>
+                    <span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x"></i>
+						<i class="fa fa-calendar-o fa-stack-1x fa-inverse"></i>
+					</span> 
+                  </li>
+                  <li>
+                    <span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x"></i>
+						<i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+					</span> +86 (010) 5698 1816
+                  </li>
+                  <li>
+                    <span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x"></i>
+						<i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+					</span>  HGLIU _at_ csrc.edu.cn
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <h5>location</h5>
+                <p>Beijing Computational Science Research Center<br>
+                Complex Systems Division <br>
+                Building 9, East Zone, ZPark II <br>
+                10 East Xibeiwang Road <br>
+                Haidian District, Beijing 100193 <br>
+                P.R.China </p>
+
+              </div>
+            </div>
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <!-- <h5>Follow us</h5>
+                <ul class="company-social">
+                  <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                  <li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
+                  <li class="social-dribble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                </ul> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sub-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="wow fadeInLeft" data-wow-delay="0.1s">
+                <div class="text-left">
+                  <p>&copy; 2018 All right reserved by Liu lab </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="wow fadeInRight" data-wow-delay="0.1s">
+                <div class="text-right">
+                  <div class="credits">
+                    <!--
+                      All the links in the footer should remain intact. 
+                      You can delete the links only if you purchased the pro version.
+                      Licensing information: https://bootstrapmade.com/license/
+                      Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Medicio
+                    -->
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+
+  <!-- Core JavaScript Files -->
+  
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'js/wow.min.js' %}"></script>
+  <script src="{% static 'js/jquery.scrollTo.js' %}"></script>
+  <script src="{% static 'js/jquery.appear.js' %}"></script>
+  <script src="{% static 'js/stellar.js' %}"></script>
+  <script src="{% static 'plugins/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/nivo-lightbox.min.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'contactform/contactform.js' %}"></script>
+
+</body>
+
+</html>

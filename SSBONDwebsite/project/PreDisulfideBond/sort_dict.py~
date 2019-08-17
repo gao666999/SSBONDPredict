@@ -1,0 +1,36 @@
+import os
+from time import time,localtime,strftime
+import pandas as pd
+def sort_dict(filename,dict1):
+	keys = dict1.keys()
+	value = dict1.values()
+	pb = []
+	ep = []
+	en = []
+	for i in value:
+		pb.append(i.split(' ')[0])
+		ep.append(i.split(' ')[1])
+		en.append(i.split(' ')[2])
+	s0 = pd.Series(keys)	
+	s1 = pd.Series(pb)
+	s2 = pd.Series(ep)
+	s3 = pd.Series(en)
+	df = pd.DataFrame({"key":s0,"probability":s1,"entropy":s2,"energy":s3})
+	cols = ["key", "probability", "entropy", "energy"]
+	df = df.ix[:,cols]
+	print df
+	df_pb = df.sort_values(by = "probability", axis = 0, ascending = False)
+	df_ep = df.sort_values(by = "entropy", axis = 0, ascending = False)
+	df_en = df.sort_values(by = "energy", axis = 0, ascending = False)
+	
+	writer = pd.ExcelWriter('./media/result/result.xlsx')
+	
+	df_pb.to_excel(writer, sheet_name = 'probability')
+	df_ep.to_excel(writer, sheet_name = 'entropy')
+	df_en.to_excel(writer, sheet_name = 'energy')
+	writer.save()
+	path ="media/result"
+	for file in os.listdir(path):
+		os.rename(os.path.join(path,file),os.path.join(path,filename + '.xlsx'))	
+	#print df_pb
+	return 1

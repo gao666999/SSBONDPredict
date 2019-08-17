@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>欢迎光临 自强学堂！</title>
+<script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<div id="list"> 学习 </div>
+<div id='dict'></div>
+<script type="text/javascript">
+    //列表
+    var List = {{ List|safe }};
+ 
+    //下面的代码把List的每一部分放到头部和尾部
+    $('#list').prepend(List[0]);
+    $('#list').append(List[1]);
+ 
+    console.log('--- 遍历 List 方法 1 ---')
+    for(i in List){
+        console.log(i);// i为索引
+    }
+ 
+    console.log('--- 遍历 List 方法 2 ---')
+    for (var i = List.length - 1; i >= 0; i--) {
+        // 鼠标右键，审核元素，选择 console 可以看到输入的值。
+        console.log(List[i]);
+    };
+ 
+    console.log('--- 同时遍历索引和内容，使用 jQuery.each() 方法 ---')
+    $.each(List, function(index, item){
+        console.log(index);
+        console.log(item);
+    });
+ 
+ 
+    // 字典
+    var result_dict = {{ result_dict|safe }};
+
+     
+    console.log("---  遍历字典  ---")
+    for(i in result_dict) {
+        console.log(i)
+        console.log(i + result_dict[i]);//注意，此处 i 为键值
+    }
+</script>
+</body>
+</html>

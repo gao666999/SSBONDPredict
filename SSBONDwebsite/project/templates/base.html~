@@ -1,0 +1,517 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  {% load staticfiles %}
+
+  <title>PredDIsufideBond</title>
+
+  <!-- css -->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="{% static 'plugins/cubeportfolio/css/cubeportfolio.min.css' %}">
+  <link href="{% static 'css/nivo-lightbox.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/nivo-lightbox-theme/default/default.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet" media="screen" />
+  <link href="{% static 'css/owl.theme.css' %}" rel="stylesheet" media="screen" />
+  <link href="{% static 'css/animate.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <!-- boxed bg -->
+  <link id="bodybg" href="{% static 'bodybg/bg1.css' %}" rel="stylesheet" type="text/css" />
+  <!-- template skin -->
+  <link id="t-colors" href="{% static 'color/default.css' %}" rel="stylesheet">
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+      .col-lg-6 {
+       width:auto; 
+      }
+    </style>
+    <script src="{% static 'js/jsmol/JSmol.min.js' %}"></script>
+    <!-- <script src="/jmol/Jmol.js" type="text/javascript"></script> -->
+    <script type="text/javascript">
+
+      // 1/21/2013 10:54:15 PM -- adds image handling
+
+      var jmolApplet0; // set up in HTML table, below
+
+      // logic is set by indicating order of USE -- default is HTML5 for this test page, though
+      var use = "HTML5" // JAVA HTML5 WEBGL IMAGE  are all otions
+      var s = document.location.search;
+
+      // console.log(s)
+      // Developers: The _debugCode flag is checked in j2s/core/core.z.js, 
+      // and, if TRUE, skips loading the core methods, forcing those
+      // to be read from their individual directories. Set this
+      // true if you want to do some code debugging by inserting
+      // System.out.println, document.title, or alert commands
+      // anywhere in the Java or Jmol code.
+
+      Jmol._debugCode = (s.indexOf("debugcode") >= 0);
+
+      jmol_isReady = function(applet) {
+        Jmol._getElement(applet, "appletdiv")//.style.border="1px solid blue"
+      }   
+
+      var xxxx = document.location.search
+      console.log(xxxx)
+      if (xxxx.indexOf("_USE=") > 0)xxxx = xxxx.substring(0, xxxx.indexOf("_USE=") - 1);
+      if (xxxx.length == 5 || xxxx.length == 0) { 
+        xxxx = (xxxx + "?1crn").substring(1,5)
+        script = 'h2oOn=true;set animframecallback "jmolscript:if (!selectionHalos) {select model=_modelNumber}";'
+        +'set errorCallback "myCallback";'
+        +'set defaultloadscript "isDssp = false;set defaultVDW babel;if(!h2oOn){display !water}";'
+        +'set zoomlarge false;set echo top left;echo loading XXXX...;refresh;'
+        +'load "=XXXX";set echo top center;echo XXXX;'
+        +'spacefill off;wireframe off;cartoons on;color structure;'
+        script = script.replace(/XXXX/g, xxxx)
+      } else {
+        script = unescape(xxxx.substring(1))
+      }
+
+
+      var Info = {
+        // width: 517,
+        // height: 450,
+        width: 670,
+        height: 600,
+        debug: false,
+        color: "white",
+        addSelectionOptions: false,
+        serverURL: "{% static 'js/jsmol/php/jsmol.php' %}",
+        use: "HTML5",
+        j2sPath: "{% static 'j2s' %}",
+        readyFunction: jmol_isReady,
+        script: script,
+        //jarPath: "java",
+        //jarFile: (useSignedApplet ? "JmolAppletSigned.jar" : "JmolApplet.jar"),
+        //isSigned: useSignedApplet,
+        //disableJ2SLoadMonitor: true,
+        disableInitialConsole: true
+        //defaultModel: "$dopamine",
+        //console: "none", // default will be jmolApplet0_infodiv
+      }
+
+      Models = []
+
+      template = "xid='%1';load =%1|%2 (%1)"
+      function addModel(xxxx, text) {
+       Models.push(template.replace(/\%1/g, xxxx).replace(/%2/g, text).split("|"))
+      }
+
+      addModel("1crn", "small")
+      addModel("1blu","Fe/S")
+      addModel("1bna","b-DNA")
+      addModel("1d66","transcription")
+
+      // these are conveniences that mimic behavior of Jmol.js
+
+      function jmolCheckbox(script1, script0,text,ischecked) {Jmol.jmolCheckbox(jmolApplet0,script1, script0, text, ischecked)}
+      function jmolButton(script, text) {Jmol.jmolButton(jmolApplet0, script,text)}
+      // function jmolScript(script) {Jmol.jmolScript(jmolApplet0, script)}
+      function jmolHtml(s) { document.write(s) };
+      function jmolBr() { jmolHtml("<br>") }
+      function jmolMenu(a) {Jmol.jmolMenu(jmolApplet0, a)}
+    </script>
+
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+  <div id="wrapper">
+
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <!-- <div class="top-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-md-6">
+              <p class="bold text-left">Monday - Saturday, 8am to 10pm </p>
+            </div>
+            <div class="col-sm-6 col-md-6">
+              <p class="bold text-right">Call us now +62 008 65 001</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="container navigation">
+
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+          <a class="navbar-brand" href="index.html">
+            PredDisulfideBond
+          </a>
+        </div>
+
+        
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index">Index</a></li>
+            <li class="active"><a href="predict">Predict</a></li>
+            <!-- <li><a href="#pricing">Contact</a></li> -->
+            <!-- <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="badge custom-badge red pull-right">Extra</span>More <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="index.html">Home CTA</a></li>
+                <li><a href="index-form.html">Home Form</a></li>
+                <li><a href="index-video.html">Home video</a></li>
+              </ul>
+            </li> -->
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+    </nav>
+
+
+    <!-- Section: intro -->
+    <section id="intro" class="intro">
+      <div class="intro-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6" style="padding-right:0px;">
+             <!--  <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s">
+                <h2 class="h-ultra">Medicio medical group</h2>
+              </div>
+              <div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.1s">
+                <h4 class="h-light">Provide <span class="color">best quality healthcare</span> for you</h4>
+              </div> -->
+              <div class="well well-trans">
+                <div class="wow fadeInRight" data-wow-delay="0.1s">
+
+                  <!-- <ul class="lead-list">
+                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Affordable monthly premium packages</strong><br />Lorem ipsum dolor sit amet, in verterem persecuti vix, sit te meis</span></li>
+                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Choose your favourite doctor</strong><br />Sit zril sanctus scaevola ei, ea usu movet graeco</span></li>
+                    <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Only use friendly environment</strong><br />Wisi lobortis eos ex, per at movet delectus, qui no vocent deleniti</span></li>
+                  </ul> -->
+                  <script type="text/javascript">
+
+                    jmolApplet0 = Jmol.getApplet("jmolApplet0", Info)
+
+                  </script>
+
+                </div>
+              </div>
+
+
+            </div>
+            <div class="col-lg-6" style="float: right;padding-right:0px">
+              <div class="form-wrapper">
+                <div class="wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.2s">
+
+                  <div class="panel panel-skin">
+                    
+                    <div class="panel-body">
+                    	
+          					    {% block content %}
+          					    {% endblock %}
+
+          					     <form><!-- (FORM tag is important to automatically set checkbox off when page reloads) -->
+                          <script type="text/javascript">
+                            
+                            // var ele = getElementById(jmolApplet0_localReader_files)
+                            jmolBr()
+                            // Jmol.setButtonCss(null,"style='width:160px'")
+                            // Jmol.setMenuCss(null,"style='width:160px'")
+                            
+                            // jmolButton("load ?","Load File")
+                            function testq(){
+                                // Entire array object is provided as 2nd argument.
+                                
+                                pdbname = document.getElementById("pdbId").value;
+                                // alert(pdbname);
+                                // var loadscript = 'echo loading '+pdbname+'...;refresh;async=false;load={2}'.format(pdbname,pdbname);
+                                var loadscript = 'echo loading '+pdbname+'...;refresh;async=false;load='+pdbname+';cartoon only;color structure';
+                                // console.log(loadscript)
+                                Jmol.script(jmolApplet0,loadscript);
+
+                            }
+
+                          </script>
+                        </form>
+                        <form action="/result" method="get">
+                          <input type="text" id="pdbId" name="a">
+                          <button type="button" id='test' onclick="testq()">Load by ID</button>
+                          <input type="submit" value="Predict">
+                        </form>
+                        <script type="text/javascript">
+                          jmolBr()
+                          Jmol.setButtonCss(null,"style='width:120px;margin-right:4px'")
+                          jmolButton("Model")
+                          jmolButton("color group")
+                          
+                          
+                          jmolBr()
+                          jmolBr()
+                          jmolButton("color amino")
+                          jmolButton("color structure")
+                          
+                          jmolBr()
+                          jmolBr()
+                          jmolButton("trace only")
+                          jmolButton("cartoon only")
+                          jmolBr()
+                          jmolBr()
+                          jmolButton("backbone only")
+                          jmolButton("spacefill only;spacefill 23%;wireframe 0.15","ball&stick")
+                          
+
+                        </script>
+                        <form><!-- (FORM tag is important to automatically set checkbox off when page reloads) -->
+
+
+                          <script type="text/javascript">
+                            Jmol.setButtonCss(null,"style='width:150px;margin-right:4px'")
+                            // Jmol.setMenuCss(null,"style='width:150px'")
+                            // jmolButton("if (!xid) { xid = '1crn'};var x = prompt('Enter a four-digit PDB ID',xid);if (!x) { quit }; xid = x; load @{'=' + x}","Load PDB by ID")
+
+                            // jmolBr()
+                            // jmolHtml("Examples:")
+                            // jmolBr()
+                            // jmolMenu(Models)
+                            // jmolBr()
+
+                            // jmolButton("script ?.spt","Load SCRIPT")
+                            // jmolBr()
+                            jmolBr()
+                            // jmolCheckbox("h2oOn=true;display *","h2oOn=false;display !water","display water",true)
+                            // jmolBr()
+                            jmolBr()
+                            jmolButton("write FILE ?","Save FILE")
+                            jmolButton("write IMAGE jsmol.jpg","Save JPG")
+                            jmolBr()
+                            jmolBr()
+                            jmolButton("write IMAGE jsmol.png","Save PNG")
+                            jmolButton("write jsmol.jmol","Save Jmol")
+                            jmolBr()
+                            jmolBr()
+                            jmolButton("write PNGJ jsmol.png","Save PNG+Jmol")
+                            jmolButton("write STATE jsmol.spt","Save STATE")
+                            jmolBr()
+                            jmolBr()
+                            jmolBr()
+                            jmolBr()
+                            jmolBr()
+
+                          </script>
+                        </form>
+
+                        
+                         
+                        
+
+                   </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> 
+
+
+<!-- 
+    <section id="callaction" class="home-section paddingtop-40">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="callaction bg-gray">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="cta-text">
+                      <h3>In an emergency? Need help now?</h3>
+                      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit uisque interdum ante eget faucibus. </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="wow lightSpeedIn" data-wow-delay="0.1s">
+                    <div class="cta-btn">
+                      <a href="#" class="btn btn-skin btn-lg">Book an appoinment</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    
+    <footer>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <h5>About Prediction</h5>
+                <p>
+                  Lorem ipsum dolor sit amet, ne nam purto nihil impetus, an facilisi accommodare sea
+                </p>
+              </div>
+            </div>
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <h5>Information</h5>
+                <ul>
+                <li><a href="http://liulab.csrc.ac.cn">Laboratory</a></li>
+          <li><a href="http://www.chemistry.wustl.edu/~edudev/LabTutorials/jmol.html">Jmol</a></li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <h5>Reserach Center</h5>
+                <p>
+                  Complex system
+                </p>
+                <ul>
+                  <li>
+                    <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-calendar-o fa-stack-1x fa-inverse"></i>
+          </span> Monday - Friday, 8am to 5pm
+                  </li>
+                  <li>
+                    <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+          </span> +62 0888 904 711
+                  </li>
+                  <li>
+                    <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+          </span> hello@csrc.edu.cn
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <h5>location</h5>
+                <p>Building 9, East Zone, ZPark II, No.10 East Xibeiwang Road, Haidian District, Beijing 100193, China </p>
+
+              </div>
+            </div>
+            <div class="wow fadeInDown" data-wow-delay="0.1s">
+              <div class="widget">
+                <!-- <h5>Follow us</h5>
+                <ul class="company-social">
+                  <li class="social-facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                  <li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                  <li class="social-google"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                  <li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
+                  <li class="social-dribble"><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                </ul> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sub-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="wow fadeInLeft" data-wow-delay="0.1s">
+                <div class="text-left">
+                  <p>&copy; 2018 All right reserved by Liu lab </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <div class="wow fadeInRight" data-wow-delay="0.1s">
+                <div class="text-right">
+                  <div class="credits">
+                    <!--
+                      All the links in the footer should remain intact. 
+                      You can delete the links only if you purchased the pro version.
+                      Licensing information: https://bootstrapmade.com/license/
+                      Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Medicio
+                    -->
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+
+  <!-- Core JavaScript Files -->
+  
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.min.js' %}"></script>
+  <script src="{% static 'js/wow.min.js' %}"></script>
+  <script src="{% static 'js/jquery.scrollTo.js' %}"></script>
+  <script src="{% static 'js/jquery.appear.js' %}"></script>
+  <script src="{% static 'js/stellar.js' %}"></script>
+  <script src="{% static 'plugins/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/nivo-lightbox.min.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'contactform/contactform.js' %}"></script>
+
+</body>
+
+</html>

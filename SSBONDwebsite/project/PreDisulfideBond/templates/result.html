@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+  {% if uploaded_file_url %}
+    <!-- <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p> -->
+    <!-- <p>{{ reslut_dict }}</p> -->
+    <div id='Reslut'></div>>
+    <!-- <script src="{% static 'js/jquery.min.js' %}"></script> -->
+    <script type="text/javascript">
+        var result_dict = {{ result_dict|safe }};
+        console.log("--- 两种字典的取值方式  ---")
+        console.log(result_dict['site']);
+        console.log(result_dict.author);
+
+        console.log("---  遍历字典  ---");
+        for(i in result_dict) {
+            console.log(i + result_dict[i]);//注意，此处 i 为键值
+        }
+    </script>
+  {% endif %}
+
+{% endblock %}

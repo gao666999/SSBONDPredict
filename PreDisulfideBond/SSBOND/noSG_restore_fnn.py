@@ -15,7 +15,7 @@ import exceptions
 from . import noSG_fnn
 
 def set_pointdir(basepath):
-    checkpoint_dir = basepath + '/PreDisulfideBond/static/model'
+    checkpoint_dir = basepath + '/PreDisulfideBond/static/newmodel'
     return checkpoint_dir
 #add energy,only add a parameter result_E into predict
 #def predict(args,sess,images,labels,logits,out):
@@ -59,7 +59,7 @@ def main(args,basepath):
     ckpt = tf.train.get_checkpoint_state(checkpoint_dir)
     #print(ckpt)
     #ckpt_path = ckpt.all_model_checkpoint_paths[-1]
-    ckpt_path = os.path.join(checkpoint_dir, 'model.ckpt-1899')  # modified by xxli
+    ckpt_path = os.path.join(checkpoint_dir, 'model.ckpt-800')  # modified by xxli
     #print(ckpt_path)
     saver = tf.train.import_meta_graph(ckpt_path + '.meta')
     saver.restore(sess,ckpt_path)

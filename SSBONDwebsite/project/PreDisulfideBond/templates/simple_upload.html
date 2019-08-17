@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+  
+  <!-- <form  method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <input type="file" name="myfiles" style="display: inline-block;">
+    <button type="submit">Upload</button>
+  </form> -->
+  
+  <script type="text/javascript">
+    function selectFile(input) {
+    	var fileName = input.value;
+      if(fileName.length > 1 && fileName ) {       
+          var ldot = fileName.lastIndexOf(".");
+          var type = fileName.substring(ldot + 1);
+           
+          if(type != "pdb") {
+              alert('Only accept pdb file! Please check your input!');
+              //清除当前所选文件
+              input.outerHTML=input.outerHTML.replace(/(value=\").+\"/i,"$1\"");
+          }   
+          else{
+            upfile.value = input.value;
+          }   
+      }
+    }
+  </script>
+  <form  method="post" enctype="multipart/form-data" action="/result">
+  	{% csrf_token %}
+  	<input type="text" size="20" name="upfile" id="upfile"/>
+  	<button type="button" onclick="myfile.click()">
+  	  <span>Select File</span>
+  	</bttton>
+  	
+  	<!-- <input type="file" name="myfile" id="myfile" style="display:none"/> -->
+    <!-- <input type="file" name="myfile" id="myfile" style="display:none" onchange="upfile.value=this.value"/> -->
+  	<input type="file" name="myfile" id="myfile" style="display:none" onchange="selectFile(this)"/>
+  	<button type="submit" style="margin-left: 4px">Predict</button>
+  </form>
+
+
+  {% if wrongmsg %}
+    <!-- <p>{{ wrongmsg }}</a></p> -->
+    <script type="text/javascript">
+      alert('This file may has no ATOMs or amino acids have no C/CA/CB/N/O!')
+    </script>
+  {% endif %}
+ 
+
+{% endblock %}
+

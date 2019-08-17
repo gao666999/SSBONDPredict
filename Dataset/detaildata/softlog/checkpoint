@@ -1,0 +1,6 @@
+model_checkpoint_path: "/Users/dongxq/Desktop/SSBOND_supplement/rootpath40/log/model.ckpt-800"
+all_model_checkpoint_paths: "/Users/dongxq/Desktop/SSBOND_supplement/rootpath40/log/model.ckpt-400"
+all_model_checkpoint_paths: "/Users/dongxq/Desktop/SSBOND_supplement/rootpath40/log/model.ckpt-500"
+all_model_checkpoint_paths: "/Users/dongxq/Desktop/SSBOND_supplement/rootpath40/log/model.ckpt-600"
+all_model_checkpoint_paths: "/Users/dongxq/Desktop/SSBOND_supplement/rootpath40/log/model.ckpt-700"
+all_model_checkpoint_paths: "/Users/dongxq/Desktop/SSBOND_supplement/rootpath40/log/model.ckpt-800"
