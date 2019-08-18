@@ -1,4 +1,5 @@
 
 *.pyc
 PreDisulfideBond/.DS_Store
-*~
+SSBONDwebsite/media
+SSBONDwebsite/small_ca_remove.txt
