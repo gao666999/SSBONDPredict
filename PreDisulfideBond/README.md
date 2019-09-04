@@ -13,8 +13,8 @@ This folder contain source code of SSBONDPredict, includeds the following:
 ### Requirement
 tensorflow 1.10.0,and two packages,rmsd and Biopython
 ```
-install rmsd: pip insatll rmsd   
-install BioPython: pip insatll Biopython
+pip insatll rmsd   
+pip insatll Biopython
 ```
 Depending on the Python environment, the following modules might be required:
 ``` chardet, openpyxl ```
