@@ -1,4 +1,4 @@
-##datafiles used for training and testing##
+## datafiles used for training and testing 
 
 * *test_name.txt* : the PDB ID and chian ID for testing
 * *validation_name_noss.txt* : the PDB ID for validation 
