@@ -1,14 +1,14 @@
 ## SSBOND Website
 * the program inside this folder are the source code about SSBOND website, the website was developed with django,
-you can run the website simlely by:
+you can use the website simplely by run:
 ```
 python mangage.py runserver
 ```
-* **filename.txt** can recorded the pdbID has ever been processed.
+* **filename.txt** can record the pdbID has been processed by this website.
 
-* **media** is a folder can storage the pdbfiles users have uploaded or download from the Protein Data Bank,
-the file of the predicted result is also stored in media.
+* **media** is a folder can storage the pdbfiles users had uploaded from local or download from the Protein Data Bank,
+the file records the predicted result is also stored in media.
 
-* **project** inside this folder are some programs about this website's bankgroud.
+* **project:** :inside this folder are some programs about this website's bankgroud.
 
-* **static** inside this folder are some static files and network model.
+* **static** :inside this folder are some static files and network model.
