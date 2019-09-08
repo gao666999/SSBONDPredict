@@ -23,6 +23,7 @@ python create_negative_map.py pdbpath resultpath resultfilename
 pdbpath is the path of the pdbfiles to be processed
 resultpath is where you want to save the result
 resultfilename means the name of the result file you want to set,for example: 'negative_atom_position.npy'
+```
 
 * *ssbond_distance_map.py* can turn the atom position array into distance map with shape(NumberOfSSBOND,10,10).
 **Usage**
@@ -32,6 +33,7 @@ AtomPositionfile is the file saved negative or positive atom position array,resu
 ```
 
 * *create_tfrecords.py* can turn the map of positive and negative sample into tensorflow data format
+**Usage**
 ```
 python create_tfrecords.py
 and you can run python create_tfrecords.py --help Will display all parameters and features.
