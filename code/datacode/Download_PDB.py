@@ -33,7 +33,6 @@ def getFilenames(file,datasetpath):
                         print(pdbfile)
                         with open(pdbfile, "wb") as code:
                             code.writelines(data)
-                    #record the failed PDBID of the download
                     except:
                         f2=open('./filenamefailed.txt','a+')
                         print >> f2, PdbID

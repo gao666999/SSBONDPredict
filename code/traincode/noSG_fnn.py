@@ -8,10 +8,8 @@ import math
 import tensorflow as tf
 import re
 
-
 TOWER_NAME = 'tower'
 NUM_CLASSES = 2
-
 # The ssbond_distance_map are always 12x12 pixels.
 IMAGE_SIZE = 10
 IMAGE_PIXELS = IMAGE_SIZE * IMAGE_SIZE
@@ -21,9 +19,7 @@ TRAIN_FILE = 'nor_train_shulffle.tfrecords'
 TEST_FILE = 'test_shulffle.tfrecords'
 # TRAIN_FILE = 'nor_train_shulffle.tfrecords'
 # TEST_FILE = 'nor_test_shulffle.tfrecords'
-
 parser = argparse.ArgumentParser()
-
 # Basic model parameters.
 parser.add_argument('--batch_size', type=int, default=100,
                     help='Number of images to process in a batch.')
@@ -68,7 +64,7 @@ def fill_feed_dict(images_pl, labels_pl,x,y,sess=None ):
         }
     # images_feed, labels_feed = data_set.next_batch(FLAGS.batch_size,FLAGS.fake_data)
     # print(images_feed.shape,labels_feed.shape)
-    
+
     return feed_dict
 
 def _activation_summary(x):

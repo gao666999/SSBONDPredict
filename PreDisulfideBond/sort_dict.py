@@ -22,7 +22,7 @@ def sort_dict(path,filename,dict1, output_path='./'):
     df_pb = df.sort_values(by = "probability", axis = 0, ascending = False)
     df_ep = df.sort_values(by = "entropy", axis = 0, ascending = False)
     df_en = df.sort_values(by = "energy", axis = 0, ascending = False)
-    basepath = output_path + '/SSBOND-Result-'+filename[:4] + '/'
+    basepath = os.path.join(output_path, 'SSBOND-Result-'+filename[:4] + '/')
     if os.path.exists(basepath):
         Position = basepath + 'result.xlsx'
     else:
@@ -36,6 +36,4 @@ def sort_dict(path,filename,dict1, output_path='./'):
     writer.save()
     os.rename(os.path.join(basepath,'result.xlsx'),os.path.join(basepath,filename + '.xlsx'))
     resultPosition = basepath + filename +'.xlsx'
-    # 'the result are saved in :',resultPosition
     return resultPosition,basepath
-    #print df_pb

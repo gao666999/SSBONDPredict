@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -63,7 +63,7 @@
         margin-top: 28px;
       }
       .col-lg-6 {
-       width:auto; 
+       width:auto;
       }
     </style>
     <script src="{% static 'js/jsmol/JSmol.min.js' %}"></script>
@@ -79,7 +79,7 @@
       var s = document.location.search;
 
       // console.log(s)
-      // Developers: The _debugCode flag is checked in j2s/core/core.z.js, 
+      // Developers: The _debugCode flag is checked in j2s/core/core.z.js,
       // and, if TRUE, skips loading the core methods, forcing those
       // to be read from their individual directories. Set this
       // true if you want to do some code debugging by inserting
@@ -90,12 +90,12 @@
 
       jmol_isReady = function(applet) {
         Jmol._getElement(applet, "appletdiv")//.style.border="1px solid blue"
-      }   
+      }
 
       var xxxx = document.location.search
       console.log(xxxx)
       if (xxxx.indexOf("_USE=") > 0)xxxx = xxxx.substring(0, xxxx.indexOf("_USE=") - 1);
-      if (xxxx.length == 5 || xxxx.length == 0) { 
+      if (xxxx.length == 5 || xxxx.length == 0) {
         xxxx = (xxxx + "?1crn").substring(1,5)
         script = 'h2oOn=true;set animframecallback "jmolscript:if (!selectionHalos) {select model=_modelNumber}";'
         +'set errorCallback "myCallback";'
@@ -184,7 +184,7 @@
           </a>
         </div>
 
-        
+
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -244,24 +244,24 @@
                 <div class="wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.2s">
 
                   <div class="panel panel-skin">
-                    
-                    <div class="panel-body">
-                    	
-          					    {% block content %}
-          					    {% endblock %}
 
-          					     <form><!-- (FORM tag is important to automatically set checkbox off when page reloads) -->
+                    <div class="panel-body">
+
+                        {% block content %}
+                        {% endblock %}
+
+                         <form><!-- (FORM tag is important to automatically set checkbox off when page reloads) -->
                           <script type="text/javascript">
-                            
+
                             // var ele = getElementById(jmolApplet0_localReader_files)
                             jmolBr()
                             // Jmol.setButtonCss(null,"style='width:160px'")
                             // Jmol.setMenuCss(null,"style='width:160px'")
-                            
+
                             // jmolButton("load ?","Load File")
                             function testq(){
                                 // Entire array object is provided as 2nd argument.
-                                
+
                                 pdbname = document.getElementById("pdbId").value;
                                 // alert(pdbname);
                                 // var loadscript = 'echo loading '+pdbname+'...;refresh;async=false;load={2}'.format(pdbname,pdbname);
@@ -283,13 +283,13 @@
                           Jmol.setButtonCss(null,"style='width:120px;margin-right:4px'")
                           jmolButton("Model")
                           jmolButton("color group")
-                          
-                          
+
+
                           jmolBr()
                           jmolBr()
                           jmolButton("color amino")
                           jmolButton("color structure")
-                          
+
                           jmolBr()
                           jmolBr()
                           jmolButton("trace only")
@@ -298,7 +298,7 @@
                           jmolBr()
                           jmolButton("backbone only")
                           jmolButton("spacefill only;spacefill 23%;wireframe 0.15","ball&stick")
-                          
+
 
                         </script>
                         <form><!-- (FORM tag is important to automatically set checkbox off when page reloads) -->
@@ -340,9 +340,9 @@
                           </script>
                         </form>
 
-                        
-                         
-                        
+
+
+
 
                     </div>
                   </div>
@@ -353,10 +353,10 @@
           </div>
         </div>
       </div>
-    </section> 
+    </section>
 
 
-<!-- 
+<!--
     <section id="callaction" class="home-section paddingtop-40">
       <div class="container">
         <div class="row">
@@ -386,7 +386,7 @@
     </section> -->
 
 
-    
+
     <footer>
 
       <div class="container">
@@ -404,9 +404,9 @@
               <div class="widget">
                 <h5>Links</h5>
                 <ul>
-	            	<li><a href="http://liulab.csrc.ac.cn">Homepage of Laboratory</a></li>
-					<li><a href="http://www.chemistry.wustl.edu/~edudev/LabTutorials/jmol.html">Jmol information</a></li>
-                  
+                <li><a href="http://liulab.csrc.ac.cn">Homepage of Laboratory</a></li>
+          <li><a href="http://www.chemistry.wustl.edu/~edudev/LabTutorials/jmol.html">Jmol information</a></li>
+
                 </ul>
               </div>
             </div>
@@ -416,8 +416,8 @@
               <div class="widget">
                 <h5>Developers</h5>
                 <p>
-                Xiaoqun Dong <br>
                 Xiang Gao <br>
+                Xiaoqun Dong <br>
                 Xuanxuan Li <br>
                 Haiguang Liu <br>
                 </p>
@@ -426,7 +426,7 @@
                     <span class="fa-stack fa-lg">
             <i class="fa fa-circle fa-stack-2x"></i>
             <i class="fa fa-calendar-o fa-stack-1x fa-inverse"></i>
-          </span> 
+          </span>
                   </li>
                   <li>
                     <span class="fa-stack fa-lg">
@@ -489,12 +489,12 @@
                 <div class="text-right">
                   <div class="credits">
                     <!--
-                      All the links in the footer should remain intact. 
+                      All the links in the footer should remain intact.
                       You can delete the links only if you purchased the pro version.
                       Licensing information: https://bootstrapmade.com/license/
                       Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Medicio
                     -->
-                    
+
                   </div>
                 </div>
               </div>
@@ -508,7 +508,7 @@
   <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
 
   <!-- Core JavaScript Files -->
-  
+
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
   <script src="{% static 'js/jquery.easing.min.js' %}"></script>
   <script src="{% static 'js/wow.min.js' %}"></script>

@@ -45,16 +45,9 @@ def create_new_AA(pdbfile,wildtype_name,idnumber,chainid):
     mutation_AA = []
     with open (pdbfile,'r') as f:
         lines = f.readlines()
-        #print lines
         lenth = len(lines)
-        #print lenth
-        #print 'i am length '
         i = 0
-        while i<lenth:
-            #print lines[i]
-            #print lenth
-            #print i
-            #print ' iiiiiiiiiiiii'
+        while i<lenth-1:
             line_tag = lines[i][:6].strip()
             line_tag_two =lines[i+1][:6].strip()
             if line_tag == 'ATOM' and line_tag_two != 'ANISOU':

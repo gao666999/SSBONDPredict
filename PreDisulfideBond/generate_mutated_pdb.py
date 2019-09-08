@@ -26,9 +26,10 @@ def create_new_pdb(datafile, wildtype_name1,idnumber1,chainid1,wildtype_name2,id
         lines = f1.readlines()
         lenth = len(lines)
         i = 0
-        while i < lenth:
+        while i < lenth-1:
             line_tag = lines[i][:6].strip()
-            if line_tag == 'ATOM':
+            line_tag_two = lines[i+1][:6].strip()
+            if line_tag == 'ATOM' and line_tag_two != 'ANISOU':
                 #if lines[i][22:27].strip() == change_number1:
                 if lines[i][17:20].strip() == wildtype_name1 and lines[i][20:22].strip() == chainid1 and lines[i][22:27].strip() == idnumber1:
                     if lines[i][17:20].strip() == "CYS":
@@ -690,7 +691,7 @@ def create_new_pdb(datafile, wildtype_name1,idnumber1,chainid1,wildtype_name2,id
                     i += 1
             elif line_tag == "END":
                 f2.write(lines[i])
-                break
+                continue
             else:
                 f2.write(lines[i])
                 i += 1
