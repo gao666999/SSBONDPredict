@@ -1,6 +1,5 @@
 ## datafiles used for training,testing and validation
-* **data_used_for_test.txt** : recorded the PDB ID and chian ID used for testing
-* **data_used_for_validation.txt** : recorded the PDB ID used for validation
+
 * **positive_atom_position.npy** : recorded array about atoms position of positive sample
 * **negative_atom_position.npy** : recorded array about atoms position of negative sample
 * **negative_distance_map.npy** : the atoms distance map of positive sample
