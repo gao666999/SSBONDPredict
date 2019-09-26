@@ -1,5 +1,15 @@
 # SSBONDPredict
 A machine learning method for disulfide bond engineering site prediction based on structures
+
+## Summary
+This program include the following functions:
+(1) select/download structure files; 
+(2) extract disulfide bonds and generate negative samples; 
+(3) convert the coordinates to distance information; 
+(4) training and testing; 
+(5) disulfide bond engineering site prediction; 
+(6) scripts for web-server setup.
+
 ## Introduction
 SSBONDPredict is a project use a computational method based on neural network to predict residue pairs that can form disulfide bonds after cysteine mutations.The neural network was trained with atomic structures curated from the Protein Data Bank. The webserver are available at [PredDisufideBond](http://liulab.csrc.ac.cn/ssbondpre) and you can get the detail source code and usage in **PreDisulfideBond** folder.Beside predicting the residue pairs which can form disulfide bonds after mutations,it also can calculate the change of entropy and energy due to mutations. 
 The predicted result will show you this: 
