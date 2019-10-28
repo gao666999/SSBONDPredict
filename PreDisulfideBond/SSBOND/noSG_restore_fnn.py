@@ -15,7 +15,8 @@ import exceptions
 from . import noSG_fnn
 
 def set_pointdir(basepath):
-    checkpoint_dir = os.path.join(basepath,'PreDisulfideBond/static/newmodel')
+    checkpoint_dir = os.path.join(basepath,'SSBONDPredict/PreDisulfideBond/static/newmodel')
+    return checkpoint_dir
 #add energy,only add a parameter result_E into predict
 #def predict(args,sess,images,labels,logits,out):
 def predict(args,sess,images,labels,logits,out):

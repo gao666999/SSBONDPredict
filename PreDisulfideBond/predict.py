@@ -29,7 +29,7 @@ def predict_pairs(datafile,PositionOfThisProject):
 
 def predict_energy(datafile,PositionOfThisProject):
     filename = datafile
-    energy_filename = os.path.join(PositionOfThisProject,'PreDisulfideBond/Nepre/radius.npy')
+    energy_filename = os.path.join(PositionOfThisProject,'SSBONDPredict/PreDisulfideBond/Nepre/radius.npy')
     result_dict = process_loadedpdb.process_pdb(datafile,PositionOfThisProject)
     result_dict = calculate_energy.energy(datafile,result_dict, energy_filename)
     for key,value in result_dict.items():
@@ -38,9 +38,9 @@ def predict_energy(datafile,PositionOfThisProject):
 def save_result(datafile,PositionOfThisProject,filename, output_path='./'):
     #filename = datafile
     result_dict1 = process_loadedpdb.process_pdb(datafile,PositionOfThisProject)
-    energy_filename = os.path.join(PositionOfThisProject,'PreDisulfideBond/Nepre/radius.npy')
+    energy_filename = os.path.join(PositionOfThisProject,'SSBONDPredict/PreDisulfideBond/Nepre/radius.npy')
     result_dict2 = calculate_energy.energy(datafile,result_dict1, energy_filename)
-    resultPosition,output_path = sort_dict.sort_dict(PositionOfThisProject,filename,result_dict2, output_path=output_path)
+    resultPosition,output_path = sort_dict.sort_dict(PositionOfThisProject,filename,result_dict1, output_path=output_path)
     for key,value in result_dict2.items():
             print key,value
     print 'the predict result are saved in :', output_path
