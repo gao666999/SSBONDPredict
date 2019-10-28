@@ -53,7 +53,7 @@ def main(args,basepath):
     checkpoint_dir = set_pointdir(basepath)
     ckpt = tf.train.get_checkpoint_state(checkpoint_dir)
     ckpt_path = os.path.join(checkpoint_dir, 'model.ckpt-800')
-    print ckpt_path,'hhhhhhhhhhhhh'
+    #print ckpt_path,'hhhhhhhhhhhhh'
     # modified by xxli)
     saver = tf.train.import_meta_graph(ckpt_path + '.meta')
     saver.restore(sess,ckpt_path)
