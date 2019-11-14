@@ -8,7 +8,7 @@
   ```
   There are 15,139 chains in this dataset.
   
-* The VAST dataset is curated from https://www.ncbi.nlm.nih.gov/Structure/VAST/nrpdb.html with p-value cutoff of 10^-7.
+* The VAST dataset is curated from https://www.ncbi.nlm.nih.gov/Structure/VAST/nrpdb.html with p-value cutoff of 10<sup>-7</sup>.
 
 * the data in **detaildata** folder are the datafiles used for training and testing   
 
