@@ -19,11 +19,11 @@ def process_pdb(args,PositionOfThisProject):
     name = args.split('/')[-1].split('.')[0]
     map_list, map_id ,mol_type_list=extract_unknown_map.find_map_element(args)
     if map_list == []:
-        print 'no bonds'
+        print ('no bonds')
         return False
     possible_ssbond, possible_ssbond_id = extract_unknown_map.make_ssbond_without_repeat(map_list, map_id, mol_type_list)
     full_distance_map = sdm.convert_to_nxn_map(np.array(possible_ssbond))
-    print 'canditate bonds',len(full_distance_map)
+    print ('canditate bonds',len(full_distance_map))
     predict_path = np.array(full_distance_map)
     predict_ord_path = np.array(possible_ssbond_id)
     result_dict = noSG_restore_fnn.main([predict_path,predict_ord_path,name],PositionOfThisProject)
@@ -32,7 +32,6 @@ def process_pdb(args,PositionOfThisProject):
     final_dict = sorted_result_dict
     final_dict = OrderedDict()
     for item in sorted_result_dict:
-
         final_dict[item[0]] = item[1]
     return final_dict
 #read the result_dict and save it in a new file

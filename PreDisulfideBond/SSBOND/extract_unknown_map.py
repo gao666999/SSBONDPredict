@@ -3,7 +3,7 @@
 import time
 import numpy as np
 import sys
-import ssbond_distance_map as sdm
+from . import ssbond_distance_map as sdm
 import math
 
 remove_pairs = open('small_ca_remove.txt','w')
@@ -104,7 +104,7 @@ if __name__ == '__main__':
     filename = args[0]
     name = args[0].split('/')[-1].split('.')[0]
     map_list, map_id ,mol_type_list= find_map_element(filename)
-    print 'length of the map_list',len(map_list)
+    print ('length of the map_list',len(map_list))
     possible_ssbond, possible_ssbond_id = make_ssbond_without_repeat(map_list, map_id, mol_type_list)
     full_distance_map = sdm.convert_to_nxn_map(np.array(possible_ssbond))
     np.save('%s_ca_noSG_ssbond_nr.npy'%name,possible_ssbond)

@@ -1,9 +1,4 @@
 # -*- coding:utf-8-*-
-# from __future__ import unicode_literals
-# from __future__ import absolute_import
-# from __future__ import division
-# from __future__ import print_function
-
 import sys
 import time
 import numpy as np
@@ -11,7 +6,7 @@ import tensorflow as tf
 import argparse
 import os
 import math
-import exceptions
+#import exceptions
 from . import noSG_fnn
 
 def set_pointdir(basepath):
@@ -43,21 +38,21 @@ def predict(args,sess,images,labels,logits,out):
                 s = -2.1
                 s = '%.4f'% s
             result_dict[id_ord[outi][0]+'-'+id_ord[outi][1]] = str('%.3f'% out_[outi][1]) + ' ' + str(s)
-    print 'finish predict.'
+    print ('finish predict.')
     return result_dict
 
 
 
 def main(args,basepath):
-    sess=tf.Session()
+    sess=tf.compat.v1.Session()
     checkpoint_dir = set_pointdir(basepath)
     ckpt = tf.train.get_checkpoint_state(checkpoint_dir)
     ckpt_path = os.path.join(checkpoint_dir, 'model.ckpt-800')
     #print ckpt_path,'hhhhhhhhhhhhh'
     # modified by xxli)
-    saver = tf.train.import_meta_graph(ckpt_path + '.meta')
+    saver = tf.compat.v1.train.import_meta_graph(ckpt_path + '.meta')
     saver.restore(sess,ckpt_path)
-    graph = tf.get_default_graph()
+    graph = tf.compat.v1.get_default_graph()
     images = graph.get_tensor_by_name('image:0')
     labels=graph.get_tensor_by_name('labels:0')
     logits = graph.get_tensor_by_name('softmax_linear/add:0')

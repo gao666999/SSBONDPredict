@@ -35,11 +35,6 @@ def xyz5_position(i,lines):
     #translation the P2 into initial position after rotation
     new_position += rmsd.centroid(amino_acid_position)
     C = new_position.tolist()
-    #print new_position
-    #change the martix into list
-    #lenthg = len(C)
-    #print lenthg
-    #for n in range(0,6,1):
     position = ('%8s'%str(float('%.3f'%C[5][0]))) + ('%8s'%str(float('%.3f'%C[5][1]))) + ('%8s'%str(float('%.3f'%C[5][2])))
     return position
 #GLY line5
@@ -70,23 +65,15 @@ def xyz4a_position(i,lines):
     template1 -= rmsd.centroid(template1)
     #centroid P2 into f
     template2 = template2 - rmsd.centroid(template2)
-    #for debug
-    #print '*************8888888888888888'
-    #print template1.shape#(4,3)
-    #print a_acid_p.shape#(5,3)
-    #print template2.shape#(6.3)
     rot = rmsd.kabsch(template1,a_acid_p)
     #pp is the rotated martix,Rotate matrix P2 unto Q
     new_position = np.dot(template2,rot)
     #translation the P2 into initial position after rotation
     new_position += rmsd.centroid(amino_acid_position)
     C = new_position.tolist()
-    #print new_position
-    #print lenthg
-    #for n in range(0,6,1):
     position5 = ('%8s'%str(float('%.3f'%C[4][0]))) + ('%8s'%str(float('%.3f'%C[4][1]))) + ('%8s'%str(float('%.3f'%C[4][2])))
     position6 = ('%8s'%str(float('%.3f'%C[5][0]))) + ('%8s'%str(float('%.3f'%C[5][1]))) + ('%8s'%str(float('%.3f'%C[5][2])))
-    print 'print the position of position 5 and position 6'
+    print ('print the position of position 5 and position 6')
     return position5,position6
 #GLY line6
 # this function can produce the sixth position for redius who only have 4 atoms,
@@ -122,8 +109,5 @@ def xyz4b_position(i,lines):
     #translation the P2 into initial position after rotation
     new_position += rmsd.centroid(amino_acid_position)
     C = new_position.tolist()
-    #print new_position
-    #print lenthg
-    #for n in range(0,6,1):
     position = ('%8s'%str(float('%.3f'%C[5][0]))) + ('%8s'%str(float('%.3f'%C[5][1]))) + ('%8s'%str(float('%.3f'%C[5][2])))
     return position

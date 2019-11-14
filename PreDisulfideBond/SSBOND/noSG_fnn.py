@@ -11,18 +11,12 @@ import re
 
 TOWER_NAME = 'tower'
 NUM_CLASSES = 2
-
 # The ssbond_distance_map are always 12x12 pixels.
 IMAGE_SIZE = 10
 IMAGE_PIXELS = IMAGE_SIZE * IMAGE_SIZE
-
 TRAIN_FILE = 'train_shulffle.tfrecords'
 TEST_FILE = 'test_shulffle.tfrecords'
-
-data_dir = '/Users/dongxq/Desktop/disulfide/noSG_neuro_input/' 
-
-
-
+data_dir = '/Users/dongxq/Desktop/disulfide/noSG_neuro_input/'
 def fill_feed_dict(images_pl, labels_pl,x,y,sess=None ):
 
     if sess!= None:
@@ -39,7 +33,7 @@ def fill_feed_dict(images_pl, labels_pl,x,y,sess=None ):
         }
     # images_feed, labels_feed = data_set.next_batch(FLAGS.batch_size,FLAGS.fake_data)
     # print(images_feed.shape,labels_feed.shape)
-    
+
     return feed_dict
 
 def _activation_summary(x):
@@ -138,14 +132,8 @@ def loss(logits, labels):
     return tf.reduce_mean(cross_entropy, name='xentropy_mean')
 
 def training(loss, learning_rate):
-
     tf.summary.scalar('loss', loss)
-    # Create the gradient descent optimizer with the given learning rate.
     optimizer = tf.train.GradientDescentOptimizer(learning_rate)
-    # Create a variable to track the global step.
     global_step = tf.Variable(0, name='global_step', trainable=False)
-    # Use the optimizer to apply the gradients that minimize the loss
-    # (and also increment the global step counter) as a single training step.
     train_op = optimizer.minimize(loss, global_step=global_step)
-    # print('train done')
     return train_op

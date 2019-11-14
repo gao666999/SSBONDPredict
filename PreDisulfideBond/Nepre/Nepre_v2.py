@@ -1,7 +1,7 @@
 import os
 import math
 import numpy as np
-import AminoAcid as AA
+from . import AminoAcid as AA
 import gc
 import sys
 import math
@@ -346,12 +346,12 @@ if __name__ == "__main__":
 
     args = sys.argv[1:]
     if (len(args)<2):
-    	print "usage: python nepre_v2.py pdbfile energy_matrix_file"
+        print ("usage: python nepre_v2.py pdbfile energy_matrix_file")
     pdb = args[0]
     energy_filename=args[1]
     matrix = load_EnergyMatrix(energy_filename)
     if len(args) == 2:
         E = calculate_energy_for_pdbfile(pdb,matrix)
-        print "Nepre Potential Energy(Radius)"
-        print pdb,E
-   
+        print ("Nepre Potential Energy(Radius)")
+        print (pdb,E)
+

@@ -2,11 +2,8 @@
 from SSBOND import process_loadedpdb
 from SSBOND import noSG_restore_fnn
 import argparse
-import json
 import os
 import sys
-import chardet
-import copy
 import numpy as np
 import calculate_energy
 import sort_dict
@@ -24,7 +21,7 @@ def predict_pairs(datafile,PositionOfThisProject):
     # predict the residue pairs that can form disulfide bonds after mutations.
     result_dict = process_loadedpdb.process_pdb(datafile,PositionOfThisProject)
     for key,value in result_dict.items():
-            print key,value
+            print (key,value)
     return result_dict
 
 def predict_energy(datafile,PositionOfThisProject):
@@ -33,7 +30,7 @@ def predict_energy(datafile,PositionOfThisProject):
     result_dict = process_loadedpdb.process_pdb(datafile,PositionOfThisProject)
     result_dict = calculate_energy.energy(datafile,result_dict, energy_filename)
     for key,value in result_dict.items():
-            print key,value
+            print (key,value)
     return result_dict
 def save_result(datafile,PositionOfThisProject,filename, output_path='./'):
     #filename = datafile
@@ -42,8 +39,8 @@ def save_result(datafile,PositionOfThisProject,filename, output_path='./'):
     result_dict2 = calculate_energy.energy(datafile,result_dict1, energy_filename)
     resultPosition,output_path = sort_dict.sort_dict(PositionOfThisProject,filename,result_dict1, output_path=output_path)
     for key,value in result_dict2.items():
-            print key,value
-    print 'the predict result are saved in :', output_path
+            print (key,value)
+    print ('the predict result are saved in :', output_path)
     return result_dict1,output_path
 
 
