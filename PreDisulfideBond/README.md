@@ -11,11 +11,12 @@ This folder contain source code of SSBONDPredict, includeds the following:
 ## Usage
 
 ### Requirement
-The program is implemented with Python 2.7, not compatible with Python 3 yet.
-The program was developed with "tensorflow 1.10.0", and it is made compatible with newer versions of tensorflow 1.x. The compatibility with tensorflow 2.x is not tested yet.
+The program is implemented with **Python 2.7**, not compatible with Python 3 yet.
+The program was developed with **tensorflow 1.10.0**, and it is made compatible with newer versions of tensorflow 1.x. The compatibility with tensorflow 2.x is not tested.
 
-The following packages are required: "chardet, pandas, rmsd, Biopython, and openpyxl"
+The following packages are required: **scipy, chardet, pandas, rmsd, Biopython, and openpyxl**
 ```
+pip install scipy
 pip install chardet
 pip install pandas
 pip insatll rmsd   
