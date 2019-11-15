@@ -13,8 +13,10 @@ import numpy as np
 from . import noSG_restore_fnn
 import operator
 from collections import OrderedDict
-
-
+import os
+import warnings
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+warnings.filterwarnings('ignore')
 def process_pdb(args,PositionOfThisProject):
     name = args.split('/')[-1].split('.')[0]
     map_list, map_id ,mol_type_list=extract_unknown_map.find_map_element(args)
@@ -28,7 +30,7 @@ def process_pdb(args,PositionOfThisProject):
     predict_ord_path = np.array(possible_ssbond_id)
     result_dict = noSG_restore_fnn.main([predict_path,predict_ord_path,name],PositionOfThisProject)
     #noSG_restore_fnn.set_pointdir(PositionOfThisProject)
-    sorted_result_dict = sorted(result_dict.iteritems(), key=operator.itemgetter(1), reverse=True)
+    sorted_result_dict = sorted(result_dict.items(), key=operator.itemgetter(1), reverse=True)
     final_dict = sorted_result_dict
     final_dict = OrderedDict()
     for item in sorted_result_dict:

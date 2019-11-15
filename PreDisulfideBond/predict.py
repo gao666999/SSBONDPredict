@@ -8,7 +8,9 @@ import numpy as np
 import calculate_energy
 import sort_dict
 import generate_mutated_pdb as GMP
-
+import warnings
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+warnings.filterwarnings("ignore")
 def get_abspath():
     old_abspath=os.path.abspath(__file__).split('/')
     newpath=''

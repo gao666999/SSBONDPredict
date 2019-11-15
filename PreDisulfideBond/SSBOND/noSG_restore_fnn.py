@@ -6,9 +6,9 @@ import tensorflow as tf
 import argparse
 import os
 import math
-#import exceptions
-from . import noSG_fnn
-
+import warnings
+warnings.filterwarnings("ignore")
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 def set_pointdir(basepath):
     checkpoint_dir = os.path.join(basepath,'SSBONDPredict/PreDisulfideBond/static/newmodel')
     return checkpoint_dir
@@ -42,11 +42,10 @@ def predict(args,sess,images,labels,logits,out):
     return result_dict
 
 
-
 def main(args,basepath):
     sess=tf.compat.v1.Session()
     checkpoint_dir = set_pointdir(basepath)
-    ckpt = tf.train.get_checkpoint_state(checkpoint_dir)
+#    ckpt = tf.train.checkpoint_exists(checkpoint_dir)
     ckpt_path = os.path.join(checkpoint_dir, 'model.ckpt-800')
     #print ckpt_path,'hhhhhhhhhhhhh'
     # modified by xxli)
@@ -59,6 +58,25 @@ def main(args,basepath):
     out=tf.nn.softmax(logits=logits)
     result_dict = predict(args,sess,images,labels,logits,out)
     return result_dict
+
+'''''
+def main(args,basepath):
+    sess=tf.compat.v1.Session()
+    checkpoint_dir = set_pointdir(basepath)
+#    ckpt = tf.train.checkpoint_exists(checkpoint_dir)
+    ckpt_path = os.path.join(checkpoint_dir, 'model.ckpt-800')
+    #print ckpt_path,'hhhhhhhhhhhhh'
+    # modified by xxli)
+    saver = tf.compat.v1.train.import_meta_graph(ckpt_path + '.meta')
+    saver.restore(sess,ckpt_path)
+    graph = tf.compat.v1.get_default_graph()
+    images = graph.get_tensor_by_name('image:0')
+    labels=graph.get_tensor_by_name('labels:0')
+    logits = graph.get_tensor_by_name('softmax_linear/add:0')
+    out=tf.nn.softmax(logits=logits)
+    result_dict = predict(args,sess,images,labels,logits,out)
+    return result_dict
+'''''
 
 if __name__ == '__main__':
     #settings.configure()

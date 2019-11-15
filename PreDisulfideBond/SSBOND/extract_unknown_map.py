@@ -1,11 +1,11 @@
 # -*-coding:utf-8-*-
-
+import os
 import time
 import numpy as np
 import sys
 from . import ssbond_distance_map as sdm
 import math
-
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 remove_pairs = open('small_ca_remove.txt','w')
 def compare_CA_distance(A_CA,B_CA,nameA,nameB):
     sumCA = 0

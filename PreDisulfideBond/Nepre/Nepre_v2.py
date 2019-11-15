@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 import os
 import math
 import numpy as np
@@ -27,14 +28,14 @@ def load_EnergyMatrix(energy_filename):
             "HIS":{},"LYS":{},"ARG":{},"ASP":{},"GLU":{},}
 
     List = aaDict.keys()
-    List.sort()
+    List=sorted(List)
 
     #f1 = open("./project/PreDisulfideBond/Nepre/radius.npy")
-    f1 = open(energy_filename)
+    #f1 = open(energy_filename)
     for amino1 in List:
         for amino2 in List:
-            aaDict[amino1][amino2] = np.load(f1)
-    f1.close()
+            aaDict[amino1][amino2] = np.load(energy_filename)
+    #f1.close()
     return aaDict
 
 
