@@ -26,6 +26,8 @@ pip install openpyxl
 pip install numpy==1.14(notice that the version of numpy should less than 1.17 )
 
 ```
+**NOTE**: In some cases with anaconda installations, the environment variable should be set to avoid dynamic library link error, such as: ```export KMP_DUPLICATE_LIB_OK=TRUE```
+for bash. Similar tricks for other shell environment.
 
 ### Running the program
 Download the code from GitHub, then you are ready to go.
