@@ -20,8 +20,8 @@ The following packages are required: **scipy, chardet, pandas, rmsd, Biopython, 
 pip install scipy
 pip install chardet
 pip install pandas
-pip insatll rmsd   
-pip insatll Biopython
+pip install rmsd   
+pip install Biopython
 pip install openpyxl
 pip install numpy==1.14(notice that the version of numpy should less than 1.17 )
 
