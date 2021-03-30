@@ -62,4 +62,5 @@ if __name__ == '__main__':
         GMP.generate_mutated_pdb(args.datafile,output_path,result)
     else:
         result,output_path = save_result(args.datafile,args.position,filename, output_path=output_path)
-
+    result=predict_pairs(args.datafile,args.position)
+    #print(result)
