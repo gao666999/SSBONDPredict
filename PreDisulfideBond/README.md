@@ -11,19 +11,19 @@ This folder contain source code of SSBONDPredict, includeds the following:
 ## Usage
 
 ### Requirement
-The program is implemented with **Python 2.7** and Python 3.6** .
+The program is implemented with **3.7.6**.
 The program was developed with **tensorflow 1.14.0**, and it is made compatible with
 newer versions of tensorflow 1.x. The compatibility with tensorflow 2.x is not tested.
 
 The following packages are required: **scipy, chardet, pandas, rmsd, Biopython, openpyxl and numpy**
 ```
-pip install scipy
-pip install chardet
-pip install pandas
+pip install scipy==1.4.1
+pip install chardet==3.0.4
+pip install pandas==1.0.1
 pip install rmsd   
 pip install Biopython
 pip install openpyxl
-pip install numpy==1.14(notice that the version of numpy should less than 1.17 )
+pip install numpy==1.16(notice that the version of numpy should less than 1.17 )
 
 ```
 **NOTE**: In some cases with anaconda installations, the environment variable should be set to avoid dynamic library link error, such as: ```export KMP_DUPLICATE_LIB_OK=TRUE```
