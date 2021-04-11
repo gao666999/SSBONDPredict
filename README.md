@@ -11,7 +11,7 @@ This program include the following functions:
 (6) scripts for web-server setup.
 
 ## Introduction
-SSBONDPredict is a project use a computational method based on neural network to predict residue pairs that can form disulfide bonds after cysteine mutations.The neural network was trained with atomic structures curated from the Protein Data Bank. The webserver are available at [PredDisufideBond](http://liulab.csrc.ac.cn/ssbondpre),when you click [website](https://github.com/gao666999/SSBONDwebsite) you can see the detail source code of this webserver,you can get the detail usage about this project in **PreDisulfideBond** folder.Beside predicting the residue pairs which can form disulfide bonds after mutations,it also can calculate the change of entropy and energy due to mutations.
+SSBONDPredict is a project use a computational method based on neural network to predict residue pairs that can form disulfide bonds after cysteine mutations.The neural network was trained with atomic structures curated from the Protein Data Bank. The webserver are available at [PredDisufideBond](http://liulab.csrc.ac.cn:10006/index),when you click [website](https://github.com/gao666999/SSBONDwebsite) you can see the detail source code of this webserver,you can get the detail usage about this project in **PreDisulfideBond** folder.Beside predicting the residue pairs which can form disulfide bonds after mutations,it also can calculate the change of entropy and energy due to mutations.
 The predicted result will show you this:
 
 ```CYSA4-ARGA10 0.997 -24.4450 -1.8942```
